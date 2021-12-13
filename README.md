@@ -15,5 +15,5 @@ Creado un componente contenedor ItemListContainer.js.
 ### Desafío 4 // CONTADOR CON BOTÓN
 
 Creado el componente ItemCount.js, compuesto de un botón y controles, para incrementar y decrementar la cantidad requerida de ítems.
-Esta invocado de la siguiente manera <ItemCount stock=”10” initial=”1” /> dentro del componente ItemListContainer.
+Esta invocado dentro del componente ItemListContainer.
 
