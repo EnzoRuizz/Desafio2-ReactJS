@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
-import '../styles/CartWidget.css';
+import './styles/CartWidget.css';
 
 function CartWidget() {
     return (
