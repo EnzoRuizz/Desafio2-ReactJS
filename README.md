@@ -17,3 +17,7 @@ Creado un componente contenedor ItemListContainer.js.
 Creado el componente ItemCount.js, compuesto de un botón y controles, para incrementar y decrementar la cantidad requerida de ítems.
 Esta invocado dentro del componente ItemListContainer.
 
+### Desafío 5 // CATÁLOGO CON MAPS
+
+Creados los componentes Item.js e ItemList.js para mostrar algunos productos en tu ItemListContainer.js.
+Usa un efecto de montaje para poder emitir un llamado asincrónico a un mock (objeto) estático de datos que devuelva un conjunto de item { id, title, description, price, pictureUrl } en dos segundos (setTimeout), para emular retrasos de red.
