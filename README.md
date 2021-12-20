@@ -21,3 +21,7 @@ Esta invocado dentro del componente ItemListContainer.
 
 Creados los componentes Item.js e ItemList.js para mostrar algunos productos en tu ItemListContainer.js.
 Usa un efecto de montaje para poder emitir un llamado asincrónico a un mock (objeto) estático de datos que devuelva un conjunto de item { id, title, description, price, pictureUrl } en dos segundos (setTimeout), para emular retrasos de red.
+
+### Desafío 6 // DETALLE DEL PRODUCTO
+
+Creados los componentes ItemDetailContainer y ItemDetail.
