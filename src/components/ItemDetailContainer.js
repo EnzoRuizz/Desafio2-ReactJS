@@ -1,47 +1,33 @@
 import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
 import ItemDetail from './ItemDetail';
-import ProductosData from '../mock/data';
-import { useNavigate, useParams } from 'react-router-dom';
 import Spinner from './Spinner';
+import ProductosData from '../mock/data';
+
 
 const ItemDetailContainer = () => {
 	const [items, setItem] = useState(null);
-	const {id : idItem} = useParams();
-	const navigate = useNavigate();
 
 	useEffect(() => getItemAsyncAwait(), []);
 
+	const getItem = () => new Promise((resolve, reject) => {
+		setTimeout(() => ProductosData[0]
+			? resolve(ProductosData[0])
+			: reject(new Error('getItems Error'))
+		, 2000);
+	});
+
 	const getItemAsyncAwait = async () => {
 		try {
-			const products = await getItem();
-			filtroData(products);
+			const product = await getItem();
+			setItem(product);
 		} catch (error) {
-			console.log('Error en getItemAsyncAwait', error);
-		}
-	};
-
-	const getItem = () => new Promise((resolve, reject) => {
-		setTimeout(() => ProductosData
-			? resolve(ProductosData)
-			: reject(new Error('Error en getItem'))
-		, 1000);
-	});
-	
-	const filtroData = data => {
-		if (idItem && data) {
-			const item = data.filter(item => item.id === idItem);
-			if (item.length === 1) {
-				setItem(item[0]);
-			} else {
-				navigate('/');
-			}
-		} else {
-			navigate('/');
+			console.log('Error', error);
 		}
 	};
 
 	return (
-		<div className="text-center my-5">
+		<div className="text-center">
 			{items ? <ItemDetail {...items} /> : <Spinner />}
 		</div>
 	);

@@ -25,3 +25,8 @@ Usa un efecto de montaje para poder emitir un llamado asincrónico a un mock (ob
 ### Desafío 6 // DETALLE DEL PRODUCTO
 
 Creados los componentes ItemDetailContainer y ItemDetail.
+
+### Desafío 7 // PRIMERA ENTREGA DEL PROYECTO FINAL 
+
+Configurado el routing en App.js usando BrowserRouter.
+Rutas configuradas '/' Navega a < itemListContainer >, '/category/:id' Navega a < ItemListContainer >, '/item/:id' Navega a < ItemDetailContainer > y si se clickea en una categoría del navbar se navega a '/category/:categoryId'

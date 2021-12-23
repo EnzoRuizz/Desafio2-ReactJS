@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 const ItemCount = ({stock, initial, onAdd}) => {
       const [contador, setNum] = useState(initial);
       return (
-          <div style={{backgroundColor: '#2c3e50', borderRadius: '25px'}} className="text-center container py-2 my-3">
+          <div style={{backgroundColor: '#2c3e50', borderRadius: '25px'}} className="text-center container p-3 m-2 ">
               <div>
                   <button onClick={ () => 
                         contador > 0 && setNum(contador - 1)
