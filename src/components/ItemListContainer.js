@@ -1,42 +1,39 @@
 import React, { useEffect, useState } from 'react'
-import ItemCount from './ItemCount';
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
-import ProductosData from './data';
+import ProductosData from '../mock/data';
+import Spinner from './Spinner';
 
-function ItemListContainer(){
-    const [items, setProductos] = useState(null)
+const ItemListContainer = () => {
+	const {id: idCategory} = useParams();
+	const [items, setItems] = useState(null);
 
-    useEffect(() => {
-      console.log("inicio")
-      setProductosPromise()
-    }, [])
+	useEffect(() => getItemsAsyncAwait(), [idCategory]);
 
-  const getProducts = () => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => ProductosData
-          ? resolve(ProductosData)
-          : reject(new Error('getProducts Error'))   
-        , 2000)        
-      })
-  }
 
-  const setProductosPromise = () => {
-        getProducts()
-          .then(
-            response => {
-              console.log(`Resuelto`, response)
-              setProductos(response)
-            },
-            error => console.log(`Rechazo`, error)
-        )
-        .catch(error => console.log(`Error`, error))
-  }
+	const getItems = () => new Promise((resolve, reject) => {
+		setTimeout(() => ProductosData
+			? resolve(ProductosData)
+			: reject(new Error('getItems Error'))	
+		, 1000);
+	});
+
+	const getItemsAsyncAwait = async () => {
+		try {
+			const products = await getItems();
+			setItems(filtroData(products));
+		} catch (error) {
+			console.error('Error en getItemsAsyncAwait', error);
+		}
+	};
+
+	const filtroData = data => (idCategory && data)
+		? data.filter(item => item.category === idCategory)
+		: data;
 
     return (
-        <div className='text-center'>
-            <ItemCount stock="10" initial="1" onAdd={contador => console.log(`Agregaste ${contador} productos al carrito`)}/>
-            {/* Mostrar productos*/}
-            {items ? <ItemList items={items}/> : <span className='h3'>Cargando...</span>}
+        <div className='text-center my-5 d-flex justify-content-around'>
+            {items ? <ItemList items={items}/> : <Spinner></Spinner>}
         </div>
     )
 }

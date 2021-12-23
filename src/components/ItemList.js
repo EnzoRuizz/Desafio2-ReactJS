@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Item from './Item';
 
-function ItemList({items}) {
+const ItemList = ({items}) => {
     return (
-        <div className="text-center d-flex justify-content-center">
+        <div className="container row row-cols-3 m-2">
         		{
 			        items.map((item, index) => (<Item key={'itemlist' + index} {...item} />))
 		        }
@@ -12,4 +12,3 @@ function ItemList({items}) {
 }
 
 export default ItemList
-

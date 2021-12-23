@@ -1,12 +1,13 @@
 import React from 'react';
 import ItemCount from './ItemCount';
 
-function ItemDetail({id, title , price , pictureUrl, description}) {
+const ItemDetail = ({id, title , price , pictureUrl, description, category}) => {
     return(
         <div className="card m-5 d-flex justify-content-center" style={{backgroundColor:"#dfe6e9"}}>
         <div className="row g-0 p-3">
           <div className="col-md-4">
-            <img src={pictureUrl} className="card-img-top" alt="lorem" />
+            <img src={pictureUrl} className="card-img-top" alt={title} />
+            <p className='card-text'>{category}</p>
           </div>
           <div className="col-md-8">
             <div className="card-body">
@@ -18,7 +19,6 @@ function ItemDetail({id, title , price , pictureUrl, description}) {
             </div>
           </div> 
         </div>
-
       </div>
     )    
 }
