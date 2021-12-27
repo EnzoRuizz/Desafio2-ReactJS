@@ -15,7 +15,7 @@ const ItemListContainer = () => {
 		setTimeout(() => ProductosData
 			? resolve(ProductosData)
 			: reject(new Error('getItems Error'))	
-		, 1000);
+		, 500);
 	});
 
 	const getItemsAsyncAwait = async () => {
