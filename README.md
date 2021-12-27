@@ -30,3 +30,7 @@ Creados los componentes ItemDetailContainer y ItemDetail.
 
 Configurado el routing en App.js usando BrowserRouter.
 Rutas configuradas '/' Navega a < itemListContainer >, '/category/:id' Navega a < ItemListContainer >, '/item/:id' Navega a < ItemDetailContainer > y si se clickea en una categoría del navbar se navega a '/category/:categoryId'
+
+### Desafío 8 // SINCRONIZAR COUNTER
+
+Importado el ItemCount.js del desafío Nº 4 en el counter ItemDetail.js, se configuro el evento de compra siguiendo los detalles de manual.
