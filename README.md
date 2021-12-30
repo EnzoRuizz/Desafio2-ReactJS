@@ -34,3 +34,7 @@ Rutas configuradas '/' Navega a < itemListContainer >, '/category/:id' Navega a 
 ### Desafío 8 // SINCRONIZAR COUNTER
 
 Importado el ItemCount.js del desafío Nº 4 en el counter ItemDetail.js, se configuro el evento de compra siguiendo los detalles de manual.
+
+### Desafío 9 // CARTCONTEXT
+
+Implementado React Context para mantener el estado de compra del user, siguiendo los detalles del manual.

@@ -36,7 +36,7 @@ const ItemDetail = item => {
             <button className="btn btn-primary" onClick={() => navigate('/cart')}>Ir Carrito</button>
           </div>)
            :	
-          (<div>
+           (<div>
             <ItemCount stock="10" onAdd={handleOnAdd}/>
           </div>)
           }
