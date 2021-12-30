@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 const ItemCount = ({stock, initial, onAdd}) => {
+      initial = 1;
       const [count, setCount] = useState(initial);
       const handleAddItem = () => count < stock && setCount(count + 1);
       const handleRemoveItem = () => count > 0 && setCount(count - 1);
