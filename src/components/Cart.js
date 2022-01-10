@@ -21,7 +21,7 @@ const Cart = () => {
 							<Link to={'/'}><span className="d-flex align-items-start"><i class="fas fa-arrow-left fa-2x"></i></span></Link>
 							<div>
 								{cartItems && cartItems.map((item, index) => (
-									<ItemCart key={'cartpagemap' + index} {...item} />
+									<ItemCart key={'cart' + index} {...item} />
 								))}
 							</div>
 							<div>
@@ -32,7 +32,7 @@ const Cart = () => {
 									</div>
 								</div>
 								<div>
-									<button className="btn btn-primary mx-1" onClick={() => console.log(`compraste ${total} items`)}>Comprar</button>
+									<button className="btn btn-primary mx-1" onClick={() => alert(`compraste ${total} items`)}>Comprar</button>
 									<button className="btn btn-primary mx-1" onClick={() => clear()}>LimpiarCarrito</button>
 								</div>
 							</div>
