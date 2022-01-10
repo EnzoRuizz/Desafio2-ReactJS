@@ -10,7 +10,7 @@ const ItemCart = product => {
 
 	return (
 		<div style={{backgroundColor: '#2c3e50', borderRadius: '25px'}} className="card-body my-2">
-			<div onClick={() => navigate(`/item/${id}`)}>
+			<div>
 				<div style={{backgroundColor: '#ffffff', borderRadius: '25px'}}>
 					<div>
 						<h2>{`Nombre: ${title}`}</h2>
