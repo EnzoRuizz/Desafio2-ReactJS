@@ -38,3 +38,7 @@ Importado el ItemCount.js del desafío Nº 4 en el counter ItemDetail.js, se con
 ### Desafío 9 // CARTCONTEXT
 
 Implementado React Context para mantener el estado de compra del user, siguiendo los detalles del manual.
+
+### Desafío 10 // CART VIEW
+
+Creado componente ItemCart para visualizar los distintos elementos dentro del componente Cart. Desglose de compra en el componente Cart.js. Actualizado el componente CartWidget.js para hacerlo reactivo al contexto. Se modificaron siguiendo los detalles del manual
