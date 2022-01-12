@@ -1,12 +1,10 @@
 import React, {useContext} from 'react';
-import {useNavigate} from 'react-router-dom';
 import {CartContext} from '../context/CartContext';
 
 const ItemCart = product => {
 	const {removeItem, removeOneItem, addOneItem} = useContext(CartContext);
 	const {item, count} = product;
-	const {id, title, price} = item;
-	const navigate = useNavigate();
+	const {title, price} = item;
 
 	return (
 		<div style={{backgroundColor: '#2c3e50', borderRadius: '25px'}} className="card-body my-2">

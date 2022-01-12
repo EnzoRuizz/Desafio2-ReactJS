@@ -1,47 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import Spinner from './Spinner';
-import ProductosData from '../mock/data';
+import {FirebaseClient} from './firebase';
+import {ProductContext} from '../context/ProductContext';
 
 const ItemDetailContainer = () => {
 	const {id: idItem} = useParams();
 	const navigate = useNavigate();
 	const [item, setItem] = useState(null);
-  
-	const getItems = () => {
-	  return new Promise ((resolve, reject) => {
-		setTimeout(() => {
-			ProductosData ? resolve(ProductosData) : reject(new Error());
-		}, 500);
-	  })
-	}
-  
-	const getItemsAsyncAwait = async () => {
-	  try {
-		const product = await getItems();
-		handleFilterData(product);
-	  } catch (error) {
-		console.log(error)
-	  }
-	}
-  
-	const handleFilterData = data => {
-	  if (idItem && data) {
-		const filterData = data.filter(item => item.id == idItem);
-		if (filterData.length === 1) {
-		  setItem(filterData[0]);
-		} else {
-		  navigate('/');
+	const {setLoad} = useContext(ProductContext);
+	const firebase = new FirebaseClient();
+
+	useEffect(() => getProductById(), []);
+
+	const getProductById = async () => {
+		try {
+			setLoad(true);
+			const value = await firebase.getProduct(idItem);
+			setLoad(false);
+			if (value) {
+				setItem(value);
+			} else {
+				navigate('/');
+			}
+		} catch (error) {
+			navigate('/');
+			console.error('Error getProductById', error);
 		}
-	  } else {
-		navigate('/');
-	  }
-	}
-  
-	useEffect(() => {
-	  getItemsAsyncAwait();
-	}, [])
+	};
 
 	return (
 		<div className="text-center my-5">

@@ -1,14 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Item from './Item';
+import {Box} from 'grommet';
 
-const ItemList = ({items}) => {
-    return (
-        <div className="container row row-cols-3 m-2">
-        		{
-			        items.map((item, index) => (<Item key={'itemlist' + index} {...item} />))
-		        }
-        </div>
-    )
-}
+const ItemList = ({items}) => (
+	<Box
+		direction="row"
+		align="start"
+		wrap="true"
+		justify="center"
+	>
+		{
+			items.map((item, index) => (
+				<Item
+					key={'itemlistmap1' + index}
+					{...item}
+				/>
+			))
+		}
+	</Box>
+);
 
-export default ItemList
+ItemList.propTypes = {
+	items: PropTypes.arrayOf({
+		id: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		category: PropTypes.string.isRequired,
+		img: PropTypes.node.isRequired,
+		price: PropTypes.number.isRequired,
+		stock: PropTypes.number.isRequired,
+	}),
+};
+
+export default ItemList;

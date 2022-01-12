@@ -42,3 +42,7 @@ Implementado React Context para mantener el estado de compra del user, siguiendo
 ### Desafío 10 // CART VIEW
 
 Creado componente ItemCart para visualizar los distintos elementos dentro del componente Cart. Desglose de compra en el componente Cart.js. Actualizado el componente CartWidget.js para hacerlo reactivo al contexto. Se modificaron siguiendo los detalles del manual
+
+### Desafío 11 // ITEM COLLECTION
+
+Conectado Firestore a los componentes ItemListContainer y ItemDetailContainer.

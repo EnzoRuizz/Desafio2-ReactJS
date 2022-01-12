@@ -1,39 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
-import ProductosData from '../mock/data';
 import Spinner from './Spinner';
+import { ProductContext } from '../context/ProductContext';
+import {FirebaseClient} from './firebase';
 
 const ItemListContainer = () => {
 	const {id: idCategory} = useParams();
-	const [items, setItems] = useState(null);
+	const {products, setProducts, load, setLoad} = useContext(ProductContext);
+	const firebase = new FirebaseClient();
 
-	useEffect(() => getItemsAsyncAwait(), [idCategory]);
+	useEffect(() => {
+		getProductsFromDb();
+	}, [idCategory]);
 
-
-	const getItems = () => new Promise((resolve, reject) => {
-		setTimeout(() => ProductosData
-			? resolve(ProductosData)
-			: reject(new Error('getItems Error'))	
-		, 500);
-	});
-
-	const getItemsAsyncAwait = async () => {
+	const getProductsFromDb = async () => {
 		try {
-			const products = await getItems();
-			setItems(filtroData(products));
+			setLoad(true);
+			const value = (idCategory)
+				? await firebase.getProductsByCategory(idCategory)
+				: await firebase.getProducts();
+			setProducts(value);
+			setLoad(false);
 		} catch (error) {
-			console.error('Error en getItemsAsyncAwait', error);
+			console.error('Error getProductsFromDb', error);
 		}
 	};
-
-	const filtroData = data => (idCategory && data)
-		? data.filter(item => item.category === idCategory)
-		: data;
-
     return (
         <div className='text-center my-5 d-flex justify-content-around'>
-            {items ? <ItemList items={items}/> : <Spinner></Spinner>}
+            {load ? <Spinner /> : <ItemList items={products}/>}
         </div>
     )
 }
