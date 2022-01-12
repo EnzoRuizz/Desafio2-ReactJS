@@ -7,14 +7,7 @@ export const ProductContextProvider = ({children}) => {
 	const [load, setLoad] = useState(true);
 
 	return (
-		<ProductContext.Provider
-			value={{
-				products,
-				setProducts,
-				load,
-				setLoad,
-			}}
-		>
+		<ProductContext.Provider value={{products, setProducts, load, setLoad}}>
 			{children}
 		</ProductContext.Provider>
 	);
