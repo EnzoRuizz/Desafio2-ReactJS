@@ -20,7 +20,7 @@ const db = getFirestore(app);
 export class FirebaseClient {
 	async getProducts() {
 		try {
-			const ref = collection(db, 'products');
+			const ref = collection(db, 'items');
 			const docSnapshot = await getDocs(ref);
 			return docSnapshot.docs.map(doc => ({
 				id: doc.id,
@@ -33,7 +33,7 @@ export class FirebaseClient {
 
 	async getProduct(id) {
 		try {
-			const ref = doc(db, 'products', id);
+			const ref = doc(db, 'items', id);
 			const docSnapshot = await getDoc(ref);
 			if (docSnapshot.exists()) {
 				return {
@@ -48,7 +48,7 @@ export class FirebaseClient {
 
 	async getProductsByCategory(category) {
 		try {
-			const q = query(collection(db, 'products'), where('category', '==', category));
+			const q = query(collection(db, 'items'), where('category', '==', category));
 			const docSnapshot = await getDocs(q);
 			return docSnapshot.docs.map(doc => ({
 				id: doc.id,
