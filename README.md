@@ -46,3 +46,11 @@ Creado componente ItemCart para visualizar los distintos elementos dentro del co
 ### Desafío 11 // ITEM COLLECTION
 
 Conectado Firestore a los componentes ItemListContainer y ItemDetailContainer.
+
+### Desafío 12 // ITEM COLLECTION II
+
+Creada la colección de órdenes.
+
+### Desafío 13 // ENTREGA FINAL
+
+Agregados los estilos de la app.

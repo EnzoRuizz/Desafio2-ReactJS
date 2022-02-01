@@ -17,23 +17,22 @@ const ItemDetail = item => {
 	};
 
   return(
-    <div className="card m-5 d-flex justify-content-center container p-3" data-id={id} style={{backgroundColor:"#dfe6e9"}}>
+    <div className="card m-5 d-flex justify-content-center container p-3" data-id={id} style={{backgroundColor:"#F8F8F8"}}>
     <div className="row g-0 p-3">
       <div className="col-md-4">
         <img src={pictureUrl} className="card-img-top" alt={title} />
+        <h5 className="card-text" style={{fontSize: '13px'}}>ID: {id}</h5>
         <p className='card-text'>{category}</p>
       </div>
       <div className="col-md-8">
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
-          <h5 className="card-text">ID: {id}</h5>
           <p className="card-text">{description}</p>
           <p className="card-text h3">${price}</p>
-          <p className="card-text">{stock}</p>
           {/* Counter */}
           {counter ? (
           <div align="center" pad="small">
-            <button className="btn btn-primary" onClick={() => navigate('/cart')}>Ir Carrito</button>
+            <button className="btn" style={{backgroundColor: '#39841E', color: '#000000'}} onClick={() => navigate('/cart')}>Ir Carrito</button>
           </div>)
            :	
            (<div>

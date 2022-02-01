@@ -11,7 +11,7 @@ import './styles/NavBar.css';
 const NavBar = () =>  {
     const navigate = useNavigate();
     return (
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg" className="navbar" sticky="top">
         <Container>
               <Navbar.Brand onClick = {() => navigate('/')}>
                 <img
@@ -20,19 +20,19 @@ const NavBar = () =>  {
                   width="30"
                   height="30"
                   className="d-inline-block align-top"
+                  style={{backgroundColor: '#000000', borderRadius: '50px'}}
                 />{' '}
               </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link><NavLink to={'/'}>Inicio</NavLink></Nav.Link>
-              <Nav.Link >Ayuda</Nav.Link>
+              <Nav.Link><NavLink to={'/'} className="navLink">Inicio</NavLink></Nav.Link>
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                <NavDropdown.Item><NavLink to={'/category/tecnologia'}>Tecnologia</NavLink></NavDropdown.Item>
-                <NavDropdown.Item><NavLink to={'/category/hogar'}>Hogar</NavLink></NavDropdown.Item>
-                <NavDropdown.Item><NavLink to={'/category/juegos-y-juguetes'}>Juegos y juguetes</NavLink></NavDropdown.Item>
+                <NavDropdown.Item><NavLink to={'/category/tecnologia'} className="navLink">Tecnologia</NavLink></NavDropdown.Item>
+                <NavDropdown.Item><NavLink to={'/category/hogar'} className="navLink">Hogar</NavLink></NavDropdown.Item>
+                <NavDropdown.Item><NavLink to={'/category/juegos-y-juguetes'} className="navLink">Juegos y juguetes</NavLink></NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item><NavLink to={'/category/libros'}>Libros</NavLink></NavDropdown.Item>
+                <NavDropdown.Item><NavLink to={'/category/libros'} className="navLink">Libros</NavLink></NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

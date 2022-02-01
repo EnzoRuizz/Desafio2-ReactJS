@@ -2,3 +2,8 @@
   margin: 0;
   padding: 0;
 }
+
+.button{
+  background-color: #39841E !important;
+  border-radius: 25px;
+}

@@ -6,7 +6,7 @@ import {FirebaseClient} from './firebase';
 import {ProductContext} from '../context/ProductContext';
 
 const ItemDetailContainer = () => {
-	const {id: idItem} = useParams();
+	const {id} = useParams();
 	const navigate = useNavigate();
 	const [item, setItem] = useState(null);
 	const {setLoad} = useContext(ProductContext);
@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
 	const getProductById = async () => {
 		try {
 			setLoad(true);
-			const value = await firebase.getProduct(idItem);
+			const value = await firebase.getProduct(id);
 			setLoad(false);
 			if (value) {
 				setItem(value);
